@@ -2569,7 +2569,7 @@ room.onPlayerChat = function (player, message) {
     );
 
     return false;
-  } else if (["!loginadm"].includes(message[0].toLowerCase())) {
+  } else if (["!setadm"].includes(message[0].toLowerCase())) {
     if (message[1] == adminPassword) {
       if (room.getPlayer(player.id).admin) {
         room.sendAnnouncement("already an administrator!", player.id, 0xFB6B6B, 2);
