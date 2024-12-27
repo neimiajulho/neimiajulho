@@ -3253,7 +3253,7 @@ setInterval(() => {
 
 /* PROVOCAÇÕES */    
 const provocacoes = {
-    "Neimia": [
+    "neimia julho": [
         "NEIMIA, a lenda do lag, entrou no campo!",
         "Cuidado! Neimia chegou pra dominar!",
         "100 gols? Já? Calma aí, Neimia!"
