@@ -3251,6 +3251,31 @@ setInterval(() => {
 
 /* EVENTOS */
 
+/* PROVOCAÇÕES */    
+const provocacoes = {
+    "Neimia": [
+        "NEIMIA, a lenda do lag, entrou no campo!",
+        "Cuidado! Neimia chegou pra dominar!",
+        "100 gols? Já? Calma aí, Neimia!"
+    ],
+    "Zoiudo": [
+        "ZOIUDO tá de olho em tudo e em todos!",
+        "Não adianta fugir, o Zoiudo vê tudo!",
+        "Zoiudo entrou! Será que hoje ele joga sério?"
+    ]
+};
+
+// Função para exibir uma provocação personalizada
+function exibirProvocacao(nome) {
+    if (provocacoes[nome]) {
+        const mensagens = provocacoes[nome];
+        const mensagem = mensagens[Math.floor(Math.random() * mensagens.length)];
+        room.sendChat(mensagem);
+    } else {
+        room.sendChat(`${nome} entrou na partida! Bem-vindo!`);
+    }
+}
+
 /* MOVIMENTO DO JOGADOR */
 
 room.onPlayerJoin = function(player) {
@@ -3258,6 +3283,7 @@ room.onPlayerJoin = function(player) {
     console.log("[📢] Nick: " + player.name);
     console.log("[📢] Conn: " + player.conn);
     console.log("[📢] Auth: " + player.auth);
+    exibirProvocacao(player.name);
     extendedP.push([player.id, player.auth, player.conn, false, 0, 0, false]);
     updateRoleOnPlayerIn();
     room.sendAnnouncement("👋🏼 E aí, " + player.name + "!", null, 0x5EE7FF, "bold");
